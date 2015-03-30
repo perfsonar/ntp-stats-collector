@@ -1,0 +1,15 @@
+<local>
+    ntpq_path    /usr/sbin/ntpq
+    cert_file   /etc/pki/tls/bundle.crt
+    # state_file is where the last state posted to esmond is stored. make sure this file exists and is writable by the user running the script
+    state_file  /var/run/ntp-stats-collector.info
+    # If check_state is 1, only update esmond if the clock has synced since the last run. If check_state is 0, always update esmond
+    check_state 1
+</local>
+
+<measurement_archive>
+    database   https://localhost/esmond/perfsonar/archive/
+    username   perfsonar
+    password   changeme
+</measurement_archive>
+
